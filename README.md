@@ -123,6 +123,3 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 📎 License
-
-This project is provided under the MIT License for educational purposes.
