@@ -1,21 +1,11 @@
 
-# 📘 Mathematical Foundation Project 3
+# Mathematical Foundation Project 3
 
 This project explores **linear regression** using **gradient descent optimization** applied on a real-world dataset (loaded via a built-in library). The objective is to understand the mathematical foundations of regression, error minimization, and optimization, implemented manually in Python.
 
 ---
 
-## 📂 Project Files
-
-```
-.
-├── Mathematical foundation Project 3 (1).ipynb
-└── README.md
-```
-
----
-
-## 🚀 Project Overview
+## Project Overview
 
 This notebook demonstrates the full pipeline of:
 - Loading and visualizing a real dataset,
@@ -25,7 +15,7 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 📊 Dataset Used
+##  Dataset Used
 
 - The dataset is **loaded from a built-in library** such as `sklearn.datasets` or `seaborn`.
 - It contains numerical features suitable for simple linear regression.
@@ -33,7 +23,7 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 🧮 Key Concepts Covered
+##  Key Concepts Covered
 
 1. **Exploratory Data Analysis (EDA)**
 2. **Feature Selection**
@@ -44,7 +34,7 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 🔢 Steps Followed in the Project
+##  Steps Followed in the Project
 
 ### 1. **Importing Libraries**
    - `numpy`, `pandas`, `matplotlib.pyplot`, and the dataset loader (e.g., `sklearn.datasets` or `seaborn`)
@@ -112,7 +102,7 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 📈 Sample Outputs
+##  Sample Outputs
 
 - **Best Fit Line Equation:**  
   `y = mx + c` (based on learned `m` and `c` values)
@@ -122,7 +112,7 @@ This notebook demonstrates the full pipeline of:
 
 ---
 
-## 📘 Learning Outcomes
+##  Learning Outcomes
 
 - Applying linear regression using real-world data
 - Understanding loss function and gradient updates
@@ -130,29 +120,6 @@ This notebook demonstrates the full pipeline of:
 - Visualizing model performance and convergence
 
 ---
-
-## 🛠️ Requirements
-
-- Python 3.8+
-- Libraries:
-  - `numpy`
-  - `pandas`
-  - `matplotlib`
-  - `sklearn` or `seaborn`
-
-Install using:
-
-```bash
-pip install numpy pandas matplotlib scikit-learn seaborn
-```
-
----
-
-## 🔧 Future Enhancements
-
-- Extend to multiple features (multivariate regression)
-- Implement stochastic gradient descent
-- Compare with `sklearn.LinearRegression` for validation
 
 ---
 
