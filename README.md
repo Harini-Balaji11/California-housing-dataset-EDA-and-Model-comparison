@@ -1,125 +1,77 @@
 
-# Mathematical Foundation Project 3
+## California Housing Dataset — EDA and Model Comparison
 
-This project explores **linear regression** using **gradient descent optimization** applied on a real-world dataset (loaded via a built-in library). The objective is to understand the mathematical foundations of regression, error minimization, and optimization, implemented manually in Python.
+This repository contains an end‑to‑end exploratory data analysis (EDA) and baseline model comparison on the California Housing dataset from `scikit‑learn`. It is designed to be portfolio‑ready, easy to run, and professional for reviewers.
 
----
+### Highlights
+- **Clean EDA**: Distribution, correlations, geospatial context, outliers
+- **Baselines**: Linear Regression, Ridge, Lasso, Random Forest, Gradient Boosting
+- **Reproducible**: One‑command setup and HTML report export
+- **Well‑structured**: Clear directories, scripts, and environment setup
 
-## Project Overview
+### Repository Structure
+```
+.
+├─ notebooks/
+│  └─ 01_eda_california_housing.ipynb        # Main EDA & insights
+├─ scripts/
+│  ├─ run_eda.py                             # Generate EDA figures
+│  └─ run_models.py                          # Train & compare models
+├─ reports/
+│  ├─ figures/                               # Auto‑generated plots
+│  └─ eda_report.html                        # Optional HTML export
+├─ requirements.txt
+├─ Makefile                                  # Export notebook to HTML
+├─ .gitignore
+├─ LICENSE
+└─ README.md
+```
 
-This notebook demonstrates the full pipeline of:
-- Loading and visualizing a real dataset,
-- Performing linear regression from scratch (without using built-in ML models),
-- Minimizing error using **gradient descent**,
-- Visualizing both the learning process and final results.
+### Quickstart
+1) Create and activate a virtual environment (recommended)
+```bash
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+```
 
----
+2) Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-##  Dataset Used
+3) Run EDA figures and baseline model comparison
+```bash
+python scripts/run_eda.py
+python scripts/run_models.py
+```
 
-- The dataset is **loaded from a built-in library** such as `sklearn.datasets` or `seaborn`.
-- It contains numerical features suitable for simple linear regression.
-- A subset of the data (one feature vs one target) is used for 2D visualization and modeling.
+4) Optional: Export notebook as an HTML report
+```bash
+make report
+```
+The figures are saved in `reports/figures/` and the HTML report to `reports/eda_report.html`.
 
----
+### Dataset
+The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
 
-##  Key Concepts Covered
+### What’s inside the notebook
+- Data overview and sanity checks (shape, types, missing values)
+- Descriptive statistics and target analysis (skew, outliers)
+- Feature distributions and correlation heatmap
+- Simple geospatial scatter by latitude/longitude
+- Baseline regressors and evaluation (e.g., MAE, RMSE, R²)
 
-1. **Exploratory Data Analysis (EDA)**
-2. **Feature Selection**
-3. **Mean Squared Error (MSE)**
-4. **Gradient Descent Optimization**
-5. **Manual Linear Regression**
-6. **Loss Curve Visualization**
+### Reproducing results
+All results can be reproduced by running the scripts and/or opening `notebooks/01_eda_california_housing.ipynb`. To create a shareable report, use `make report` which converts the notebook to HTML via `nbconvert`.
 
----
+### Requirements
+See `requirements.txt` for pinned packages. Key libraries:
+- pandas, numpy, matplotlib, seaborn
+- scikit‑learn
+- jupyter, nbconvert
 
-##  Steps Followed in the Project
+### License
+This project is released under the MIT License. See `LICENSE` for details.
 
-### 1. **Importing Libraries**
-   - `numpy`, `pandas`, `matplotlib.pyplot`, and the dataset loader (e.g., `sklearn.datasets` or `seaborn`)
-   - Purpose: Data loading, numerical computation, and visualization
-
----
-
-### 2. **Dataset Loading**
-   - A dataset is loaded using a built-in method.
-   - One independent variable (feature) and one dependent variable (target) are selected.
-   - Data is structured as numpy arrays or DataFrames.
-
----
-
-### 3. **Data Visualization**
-   - A scatter plot is created to observe the relationship between the selected feature and target.
-   - This helps verify if a linear relationship exists, justifying the use of linear regression.
-
----
-
-### 4. **Parameter Initialization**
-   - Initial values for slope `m` and intercept `c` are set randomly.
-   - Learning rate (`lr`) and number of iterations (`epochs`) are defined.
-
----
-
-### 5. **Loss Function (MSE) Definition**
-   - The error between predicted and actual values is calculated using:
-     \
-     MSE = (1/n) * Σ(y - y_pred)^2
-     \
-   - Helps evaluate model accuracy during training.
-
----
-
-### 6. **Gradient Descent Implementation**
-   - Compute gradients of the loss function:
-     - ∂MSE/∂m and ∂MSE/∂c
-   - Update rules:
-     \
-     m = m - lr * ∂/∂m,   c = c - lr * ∂/∂c
-     \
-   - Loop through `epochs` to iteratively update and minimize loss.
-
----
-
-### 7. **Training Loop**
-   - In each iteration:
-     - Predict output using current `m`, `c`
-     - Compute loss and gradients
-     - Update parameters
-     - (Optional) Store loss history for visualization
-
----
-
-### 8. **Result Visualization**
-   - Final regression line is plotted on the original data.
-   - Optional: plot the loss curve (MSE vs Epochs) to show convergence behavior.
-
----
-
-### 9. **Model Output**
-   - Final optimized values of `m`, `c` are printed.
-   - This gives the equation of the best-fit line learned through gradient descent.
-
----
-
-##  Sample Outputs
-
-- **Best Fit Line Equation:**  
-  `y = mx + c` (based on learned `m` and `c` values)
-
-- **Final MSE Value:**  
-  A small number indicating low error between predicted and actual values
-
----
-
-##  Learning Outcomes
-
-- Applying linear regression using real-world data
-- Understanding loss function and gradient updates
-- Coding gradient descent from scratch
-- Visualizing model performance and convergence
-
----
-
----
-
+### Acknowledgments
+Dataset provided by `scikit‑learn`. Inspiration: common EDA and baseline modeling workflows for tabular regression problems.

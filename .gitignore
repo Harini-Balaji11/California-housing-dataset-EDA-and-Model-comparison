@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Reports and outputs
+reports/eda_report.html
+reports/figures/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python tooling
+.mypy_cache/
+.pytype/
+.pyre/
+.pytest_cache/
+
+# Editors
+.vscode/
+.idea/
+
