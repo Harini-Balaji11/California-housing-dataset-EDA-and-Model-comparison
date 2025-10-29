@@ -35,7 +35,8 @@ jobs:
         run: |
           python scripts/run_eda.py
           python scripts/run_models.py
-          jupyter nbconvert --to html --output reports/eda_report.html "notebooks/01_eda_california_housing.ipynb"
+          mkdir -p reports
+          jupyter nbconvert --to html --output-dir reports --output eda_report.html "notebooks/01_eda_california_housing.ipynb"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
