@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MPLBACKEND: Agg
+      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,6 +26,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade setuptools wheel
           pip install -r requirements.txt
+          python -c "import sys, pkgutil; print('Python', sys.version); print('Installed:', [m.name for m in pkgutil.iter_modules()][:10])"
       - name: Run EDA script
         run: |
           python scripts/run_eda.py
