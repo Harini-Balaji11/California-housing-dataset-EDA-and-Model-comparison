@@ -6,8 +6,6 @@
 
 Live report: https://Harini-Balaji11.github.io/California-housing-dataset-EDA-and-Model-comparison/
 
-This repository contains an end‑to‑end exploratory data analysis (EDA) and baseline model comparison on the California Housing dataset from `scikit‑learn`. It is designed to be portfolio‑ready, easy to run, and professional for reviewers.
-
 ### Highlights
 - **Clean EDA**: Distribution, correlations, geospatial context, outliers
 - **Baselines**: Linear Regression, Ridge, Lasso, Random Forest, Gradient Boosting
@@ -31,6 +29,8 @@ This repository contains an end‑to‑end exploratory data analysis (EDA) and b
 ├─ reports/
 │  ├─ figures/                               # Auto‑generated plots
 │  └─ eda_report.html                        # Optional HTML export
+├─ assets/
+│  └─ figures/                               # Committed visuals for README
 ├─ requirements.txt
 ├─ Makefile                                  # Export notebook to HTML
 ├─ .gitignore
@@ -60,20 +60,9 @@ python scripts/run_models.py
 ```bash
 make report
 ```
-The figures are saved in `reports/figures/` and the HTML report to `reports/eda_report.html`.
+The figures are saved in `reports/figures/` (runtime) and `assets/figures/` (committed). HTML goes to `reports/eda_report.html`.
 
 Python version: 3.11 recommended.
-
-### Cloud deployment
-- Streamlit Community Cloud (no code changes):
-  - Go to `streamlit.io/cloud` → New app → point to this repo → set app path to `app/streamlit_app.py` → deploy.
-- Render (one-click using `render.yaml`):
-  - Create account at `render.com`, new Web Service from repo → it will auto-detect `render.yaml` → deploy. Start command uses Streamlit with `$PORT`.
-- Heroku/Railway (Procfile included):
-  - Set buildpacks for Python, deploy. The `Procfile` runs Streamlit bound to `$PORT`.
-
-### Dataset
-The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
 
 ### What’s inside the notebook
 - Data overview and sanity checks (shape, types, missing values)
@@ -83,8 +72,11 @@ The California Housing dataset is loaded via `sklearn.datasets.fetch_california_
 - Baseline regressors and evaluation (e.g., MAE, RMSE, R²)
 
 ### Selected Visuals
-- See visuals in the live report: https://Harini-Balaji11.github.io/California-housing-dataset-EDA-and-Model-comparison/ (once Pages is active).
-- After running EDA locally, figures are also saved to `assets/figures/` and `reports/figures/`.
+![Target distribution](assets/figures/target_hist.png)
+![Correlation heatmap](assets/figures/correlation_heatmap.png)
+
+### Dataset
+The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
 
 ### Reproducing results
 All results can be reproduced by running the scripts and/or opening `notebooks/01_eda_california_housing.ipynb`. To create a shareable report, use `make report` which converts the notebook to HTML via `nbconvert`.
@@ -107,5 +99,10 @@ pip install -r requirements.txt
 streamlit run app/streamlit_app.py
 ```
 
-### Acknowledgments
-Dataset provided by `scikit‑learn`. Inspiration: common EDA and baseline modeling workflows for tabular regression problems.
+### Cloud deployment
+- Streamlit Community Cloud (no code changes):
+  - Go to `streamlit.io/cloud` → New app → point to this repo → set app path to `app/streamlit_app.py` → deploy.
+- Render (one-click using `render.yaml`):
+  - Create account at `render.com`, new Web Service from repo → it will auto-detect `render.yaml` → deploy. Start command uses Streamlit with `$PORT`.
+- Heroku/Railway (Procfile included):
+  - Set buildpacks for Python, deploy. The `Procfile` runs Streamlit bound to `$PORT`.
