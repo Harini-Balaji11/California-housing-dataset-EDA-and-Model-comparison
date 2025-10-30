@@ -2,9 +2,8 @@
 ## California Housing Dataset — EDA and Model Comparison
 
 [![CI](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml/badge.svg)](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml)
-[![Pages](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/pages.yml/badge.svg)](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/pages.yml)
 
-Live report (static): published via GitHub Pages (Settings → Pages). Once enabled, use the exact URL shown there.
+Live report (static): published via GitHub Pages. See “Publish the static site” below.
 
 ### Highlights
 - **Clean EDA**: Distribution, correlations, geospatial context, outliers
@@ -27,8 +26,8 @@ Live report (static): published via GitHub Pages (Settings → Pages). Once enab
 │  ├─ run_eda.py                             # Generate EDA figures
 │  └─ run_models.py                          # Train & compare models
 ├─ reports/
-│  ├─ figures/                               # Auto‑generated plots
-│  └─ eda_report.html                        # Optional HTML export
+│  ├─ figures/                               # Auto‑generated plots (runtime)
+│  └─ eda_report.html                        # HTML export (runtime)
 ├─ assets/
 │  └─ figures/                               # Committed visuals for README
 ├─ requirements.txt
@@ -79,7 +78,7 @@ Python version: 3.11 recommended.
 The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
 
 ### Reproducing results
-All results can be reproduced by running the scripts and/or opening `notebooks/01_eda_california_housing.ipynb`. To create a shareable report, use `make report` which converts the notebook to HTML via `nbconvert`.
+All results can be reproduced by running the scripts and/or opening `notebooks/01_eda_california_housing.ipynb`. The CI workflow also validates scripts run on push.
 
 ### Requirements
 See `requirements.txt` for pinned packages. Key libraries:
@@ -92,5 +91,16 @@ Conda users can use `environment.yml`.
 ### License
 This project is released under the MIT License. See `LICENSE` for details.
 
-### Deployment
-- Static site only: GitHub Pages publishes the HTML report (`reports/index.html`). Enable in Settings → Pages.
+### Publish the static site (GitHub Pages)
+This project publishes a static report to the `gh-pages` branch via an automated workflow.
+
+1) Trigger the workflow by pushing to `main` (or re-run Actions → “Deploy to gh-pages (branch)”).
+2) After the first successful run, go to Repo → Settings → Pages:
+   - Build and deployment → Source = “Deploy from a branch”
+   - Branch = `gh-pages`, Folder = `/ (root)`
+   - Save
+3) Copy the “Your site is published at …” URL shown on that page. That’s your live report link.
+
+Notes:
+- GitHub Pages can host only static HTML/CSS/JS. This repo intentionally avoids dynamic app code.
+- The workflow writes an `index.html` (redirect or report) and disables Jekyll with `.nojekyll`.
