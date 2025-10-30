@@ -3,8 +3,6 @@
 
 [![CI](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml/badge.svg)](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml)
 
-Live report (static): published via GitHub Pages. See “Publish the static site” below.
-
 ### Highlights
 - **Clean EDA**: Distribution, correlations, geospatial context, outliers
 - **Baselines**: Linear Regression, Ridge, Lasso, Random Forest, Gradient Boosting
@@ -91,16 +89,3 @@ Conda users can use `environment.yml`.
 ### License
 This project is released under the MIT License. See `LICENSE` for details.
 
-### Publish the static site (GitHub Pages)
-This project publishes a static report to the `gh-pages` branch via an automated workflow.
-
-1) Trigger the workflow by pushing to `main` (or re-run Actions → “Deploy to gh-pages (branch)”).
-2) After the first successful run, go to Repo → Settings → Pages:
-   - Build and deployment → Source = “Deploy from a branch”
-   - Branch = `gh-pages`, Folder = `/ (root)`
-   - Save
-3) Copy the “Your site is published at …” URL shown on that page. That’s your live report link.
-
-Notes:
-- GitHub Pages can host only static HTML/CSS/JS. This repo intentionally avoids dynamic app code.
-- The workflow writes an `index.html` (redirect or report) and disables Jekyll with `.nojekyll`.
