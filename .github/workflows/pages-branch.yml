@@ -38,6 +38,8 @@ jobs:
           else
             echo "<html><body><h1>Reports will appear here after a successful build.</h1></body></html>" > reports/index.html
           fi
+          # Disable Jekyll processing to ensure raw assets serve correctly
+          touch reports/.nojekyll
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
