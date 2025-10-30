@@ -83,8 +83,8 @@ The California Housing dataset is loaded via `sklearn.datasets.fetch_california_
 - Baseline regressors and evaluation (e.g., MAE, RMSE, R²)
 
 ### Selected Visuals
-![Target distribution](reports/figures/target_hist.png)
-![Correlation heatmap](reports/figures/correlation_heatmap.png)
+- See visuals in the live report: https://Harini-Balaji11.github.io/California-housing-dataset-EDA-and-Model-comparison/ (once Pages is active).
+- After running EDA locally, figures are also saved to `assets/figures/` and `reports/figures/`.
 
 ### Reproducing results
 All results can be reproduced by running the scripts and/or opening `notebooks/01_eda_california_housing.ipynb`. To create a shareable report, use `make report` which converts the notebook to HTML via `nbconvert`.
