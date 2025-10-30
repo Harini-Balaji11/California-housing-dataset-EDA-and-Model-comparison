@@ -35,6 +35,7 @@ jobs:
           pip install -r requirements.txt
           python -c "import sys; print('Python', sys.version)"
       - name: Generate reports
+        continue-on-error: true
         run: |
           mkdir -p reports
           # Try to generate assets; do not fail build if generation fails
@@ -47,9 +48,15 @@ jobs:
           else
             echo "<html><body><h1>Reports will appear here after a successful build.</h1></body></html>" > reports/index.html
           fi
+      - name: Ensure reports artifact exists
+        if: always()
+        run: |
+          mkdir -p reports
+          [ -f reports/index.html ] || echo "<html><body><h1>Reports will appear here after a successful build.</h1></body></html>" > reports/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v3
         with:
           path: reports
