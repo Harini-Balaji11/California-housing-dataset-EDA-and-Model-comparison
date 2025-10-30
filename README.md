@@ -4,7 +4,7 @@
 [![CI](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml/badge.svg)](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/ci.yml)
 [![Pages](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/pages.yml/badge.svg)](https://github.com/Harini-Balaji11/California-housing-dataset-EDA-and-Model-comparison/actions/workflows/pages.yml)
 
-Live report: https://Harini-Balaji11.github.io/California-housing-dataset-EDA-and-Model-comparison/
+Live report (static): published via GitHub Pages (Settings → Pages). Once enabled, use the exact URL shown there.
 
 ### Highlights
 - **Clean EDA**: Distribution, correlations, geospatial context, outliers
@@ -92,17 +92,5 @@ Conda users can use `environment.yml`.
 ### License
 This project is released under the MIT License. See `LICENSE` for details.
 
-### Interactive Demo (optional)
-Run a simple Streamlit app locally:
-```bash
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-```
-
-### Cloud deployment
-- Streamlit Community Cloud (no code changes):
-  - Go to `streamlit.io/cloud` → New app → point to this repo → set app path to `app/streamlit_app.py` → deploy.
-- Render (one-click using `render.yaml`):
-  - Create account at `render.com`, new Web Service from repo → it will auto-detect `render.yaml` → deploy. Start command uses Streamlit with `$PORT`.
-- Heroku/Railway (Procfile included):
-  - Set buildpacks for Python, deploy. The `Procfile` runs Streamlit bound to `$PORT`.
+### Deployment
+- Static site only: GitHub Pages publishes the HTML report (`reports/index.html`). Enable in Settings → Pages.
