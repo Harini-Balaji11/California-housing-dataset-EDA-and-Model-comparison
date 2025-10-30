@@ -9,6 +9,9 @@
 - **Reproducible**: One‑command setup and HTML report export
 - **Well‑structured**: Clear directories, scripts, and environment setup
 
+### About
+This project demonstrates a clean, reproducible workflow for tabular regression: transparent EDA, baseline modeling, and clear reporting, suitable for portfolio review and real‑world adaptation.
+
 ### Executive Summary
 - Median house value is positively associated with `MedInc` and proximity to coastal latitude/longitude bands.
 - Correlations highlight `MedInc` as strongest single predictor among features provided.
@@ -27,7 +30,7 @@
 │  ├─ figures/                               # Auto‑generated plots (runtime)
 │  └─ eda_report.html                        # HTML export (runtime)
 ├─ assets/
-│  └─ figures/                               # Committed visuals for README
+│  └─ img/                                   # Committed visuals for README
 ├─ requirements.txt
 ├─ Makefile                                  # Export notebook to HTML
 ├─ .gitignore
@@ -69,8 +72,8 @@ Python version: 3.11 recommended.
 - Baseline regressors and evaluation (e.g., MAE, RMSE, R²)
 
 ### Selected Visuals
-![Target distribution](assets/figures/target_hist.png)
-![Correlation heatmap](assets/figures/correlation_heatmap.png)
+![Target distribution](assets/img/target_hist.png)
+![Correlation heatmap](assets/img/correlation_heatmap.png)
 
 ### Dataset
 The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
