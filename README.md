@@ -64,6 +64,14 @@ The figures are saved in `reports/figures/` and the HTML report to `reports/eda_
 
 Python version: 3.11 recommended.
 
+### Cloud deployment
+- Streamlit Community Cloud (no code changes):
+  - Go to `streamlit.io/cloud` → New app → point to this repo → set app path to `app/streamlit_app.py` → deploy.
+- Render (one-click using `render.yaml`):
+  - Create account at `render.com`, new Web Service from repo → it will auto-detect `render.yaml` → deploy. Start command uses Streamlit with `$PORT`.
+- Heroku/Railway (Procfile included):
+  - Set buildpacks for Python, deploy. The `Procfile` runs Streamlit bound to `$PORT`.
+
 ### Dataset
 The California Housing dataset is loaded via `sklearn.datasets.fetch_california_housing`. No external download is needed. Target is `MedHouseVal`; features include `MedInc`, `HouseAge`, `AveRooms`, `AveBedrms`, `Population`, `AveOccup`, `Latitude`, and `Longitude`.
 
