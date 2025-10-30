@@ -33,7 +33,9 @@ jobs:
           python scripts/run_models.py || echo "Models failed; continuing"
           jupyter nbconvert --to html --output-dir reports --output eda_report.html "notebooks/01_eda_california_housing.ipynb" || echo "nbconvert failed; continuing"
           # Create index.html
-          if [ -f reports/eda_report.html ]; then
+          if [ -n "${{ secrets.STREAMLIT_APP_URL }}" ]; then
+            echo "<meta http-equiv=\"refresh\" content=\"0; url='${{ secrets.STREAMLIT_APP_URL }}'\" />" > reports/index.html
+          elif [ -f reports/eda_report.html ]; then
             cp reports/eda_report.html reports/index.html
           else
             echo "<html><body><h1>Reports will appear here after a successful build.</h1></body></html>" > reports/index.html
